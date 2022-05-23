@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+/* primary colors */
+    --clr-soft-red: hsl(10, 79%, 65%);
+    --clr-cyan: hsl(186, 34%, 60%);
+
+/* neutral colors */
+    --clr-dark-brown: hsl(25, 47%, 15%);
+    --clr-medium-brown: hsl(28, 10%, 53%);
+    --clr-cream: hsl(27, 66%, 92%);
+    --clr-pale-orange: hsl(33, 100%, 98%);
+
+/* font */
+    --body-font: 'DM Sans', system-ui, sans-serif;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--clr-cream);
+
+    /* center all */
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+main {
+    width: clamp(250px, 90%, 400px);
+    height: 1.5rem auto;
+}
+
+.balance {
+    /* color */
+    background-color: var(--clr-soft-red);
+    color: #f8f8f8f8;
+    border-radius: 1.25rem;
+
+    /* center Item */
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.25rem 1.5rem;
+
+    /* spacing between chart */
+    margin-bottom: 1rem;
+}
+.balance .text {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: .2rem;
+}
+.balance .amount {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+/* spending style */
+.spending {
+    background-color: var(--clr-pale-orange);
+    padding: 1.5rem 1.25rem;
+    border-radius: 1.25rem;
+}
+.spending h1{
+    font-size: 32px;
+    color: var(--clr-dark-brown);
+}
+
+/* Chart */
+.chart {
+    height: 200px;
+    margin: 1.25rem 0;
+
+    display: flex;
+    align-items: flex-end;
+    gap: .75rem;
+}
+
+.chart .day {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+}
+.chart .amount{
+    position: absolute;
+    top: -1.75rem;
+
+    background-color: var(--clr-dark-brown);
+    color: #f8f8f8f8;
+    padding: .5rem;
+    opacity: 0;
+
+    font-size: 18px;
+}
+.chart .day:hover > .amount {
+    opacity: 1;
+}
+.chart .bar {
+    width: 95%;
+    background-color: var(--clr-soft-red);
+    border-radius: 1.25rem;
+    margin: .5rem 0 .75rem;
+}
+.day.today .bar{
+    background-color: var(--clr-cyan);
+}
+.chart .bar:hover {
+    opacity: .7;
+    cursor: pointer;
+}
+.chart .label {
+    color: var(--clr-medium-brown);
+    font-size: 15px;
+}
+
+.separator {
+    background-color: var(--clr-cream);
+    height: 3px;
+    border: none;
+    margin-bottom: 1.25rem;
+}
+
+.totals {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.this-month .text {
+    font-size: 18px;
+    color: var(--clr-medium-brown);
+    margin-bottom: .5rem;
+}
+.this-month .amount {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--clr-dark-brown);
+}
+.last-month {
+    text-align: right;
+    font-size: 18px;
+}
+.last-month .amount {
+    font-weight: 700;
+    color: var(--clr-dark-brown);
+}
+.last-month .amount {
+    color: var(--clr-medium-brown);
+}
+
+@media (max-width: 400px) {
+.balance .text {
+    font-size: 0.8rem;
+}
+.balance .amount {
+    font-size: 1.75rem;
+}
+.spending h1 {
+    font-size: 1.5rem;
+}
+.this-month .text {
+    font-size: 0.8rem;
+}
+.this-month .amount {
+    font-size: 2rem;
+}
+.last-month {
+    font-size: 0.9rem;
+}
+}
